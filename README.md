@@ -8,12 +8,16 @@ Softmax converts any list of numbers (raw scores) into probabilities. Probabilit
 Softmax uses an exponential trick to normalize these values. Instead of picking the biggest number, it gives higher weight to bigger raw scores into a probability distributions.
 
 **The basic formula:**
-$$\text{softmax}(x)_i = \frac{e^{x_i}}{\sum_{j=1}^n e^{x_j}}$$
+```math
+\text{softmax}(x)_i = \frac{e^{x_i}}{\sum_{j=1}^n e^{x_j}}
+```
 
 **The problem:** If $x_i$ is large (like 1000), then $e^{x_i}$ overflows and crashes.
 
 **The numerically stable formula:**
-$$\text{softmax}(x)_i = \frac{e^{x_i - \max(x)}}{\sum_{j=1}^n e^{x_j - \max(x)}}$$
+```math
+\text{softmax}(x)_i = \frac{e^{x_i - \max(x)}}{\sum_{j=1}^n e^{x_j - \max(x)}}
+```
 
 By subtracting max(x), we keep the exponentials small and avoid overflow.
 
@@ -33,7 +37,7 @@ This turns 5 passes into 2 passes:
 - **Pass 2:** Compute exp and sum using parallel reduction tree
 ---
 ## References
-https://www.bvisser.me/blog/softmax-kernel
-https://maharshi.bearblog.dev/optimizing-softmax-cuda/
-https://medium.com/@dcbaslani/beating-pytorch-writing-a-faster-softmax-kernel-in-cuda-0d0a237cda57
-https://www.youtube.com/watch?v=oJU6-qW6xZU
+- https://www.bvisser.me/blog/softmax-kernel
+- https://maharshi.bearblog.dev/optimizing-softmax-cuda/
+- https://medium.com/@dcbaslani/beating-pytorch-writing-a-faster-softmax-kernel-in-cuda-0d0a237cda57
+- https://www.youtube.com/watch?v=oJU6-qW6xZU
