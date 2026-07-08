@@ -41,3 +41,4 @@ This turns 5 passes into 2 passes:
 - https://maharshi.bearblog.dev/optimizing-softmax-cuda/
 - https://medium.com/@dcbaslani/beating-pytorch-writing-a-faster-softmax-kernel-in-cuda-0d0a237cda57
 - https://www.youtube.com/watch?v=oJU6-qW6xZU
+- https://cse.buffalo.edu/faculty/miller/Courses/CSE633/Shivraj-Wabale-Spring-2018.pdf
